@@ -1,0 +1,152 @@
+/* Diseño profesional y responsivo para CEPCI con animaciones sincronizadas */
+:root{
+  --bg:#071132;
+  --bg-2:#02102a;
+  --accent:#0b61d1;
+  --accent-2:#2b6ddf;
+  --muted:#8ea3c8;
+  --card:#0e234a;
+  --glass: rgba(255,255,255,0.05);
+  --white:#ffffff;
+  --radius:14px;
+  --shadow:0 14px 40px rgba(2,8,30,.5);
+  --shadow-soft:0 8px 24px rgba(2,8,30,.35);
+  --text: #eaf1ff;
+  --anim-fast: 300ms;
+  --anim: 600ms;
+  --anim-slow: 900ms;
+}
+
+/* Reset básico */
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{font-family:"Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;background:linear-gradient(180deg,var(--bg),var(--bg-2));color:var(--text);font-size:19px;line-height:1.6;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-kerning:normal;text-rendering:optimizeLegibility}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.container{max-width:1200px;margin:0 auto;padding:20px}
+
+/* Header */
+.site-header{position:sticky;top:0;z-index:60;border-bottom:1px solid rgba(255,255,255,0.06);backdrop-filter:blur(8px);background:rgba(7,17,50,.6)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;gap:14px;align-items:center}
+.logo-mark{width:56px;height:56px;border-radius:14px;background:linear-gradient(135deg,var(--accent),#234e9b);display:flex;align-items:center;justify-content:center;font-weight:800;color:white;box-shadow:0 8px 26px rgba(11,97,209,0.35);animation: logoPulse var(--anim-slow) ease-in-out infinite}
+.logo-type{font-size:28px;line-height:1;margin:0}
+.tag{color:var(--muted);margin:4px 0 0;font-size:14px}
+.menu-toggle{display:none;background:transparent;border:0;color:var(--white);font-size:26px;line-height:1;padding:8px;border-radius:10px}
+.menu-toggle:focus-visible{outline:2px solid var(--white)}
+.main-nav ul{display:flex;gap:14px;list-style:none;margin:0;padding:0;align-items:center}
+.main-nav a{padding:10px 14px;border-radius:10px;color:var(--muted);font-weight:700}
+.main-nav a:hover,.main-nav a:focus{background:rgba(255,255,255,0.08);color:var(--white)}
+.cta{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:var(--white);padding:10px 16px;border-radius:12px;box-shadow:0 8px 22px rgba(11,97,209,0.35)}
+
+/* Hero */
+.hero{padding:32px 0}
+.hero-grid{display:grid;grid-template-columns:1.2fr 0.8fr;gap:32px;align-items:center}
+.hero-left h2{font-size:48px;line-height:1.15;margin:0 0 12px;font-weight:800}
+.lead{color:var(--muted);margin:0 0 16px;font-size:20px}
+.features{display:flex;gap:10px;flex-wrap:wrap}
+.feature{background:var(--glass);padding:10px 12px;border-radius:12px;color:var(--muted);font-weight:700;border:1px solid rgba(255,255,255,0.06)}
+.hero-right img{width:100%;height:auto;border-radius:16px;box-shadow:var(--shadow);transform:translateZ(0);animation: floatY var(--anim-slow) ease-in-out infinite;will-change: transform}
+.hero-actions{margin-top:16px;display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;padding:12px 18px;border-radius:12px;background:transparent;color:var(--white);font-weight:800;text-decoration:none;border:1px solid rgba(255,255,255,0.14);transition: transform var(--anim-fast) ease, box-shadow var(--anim-fast) ease}
+.btn.primary{background:linear-gradient(90deg,var(--accent),var(--accent-2));border-color:transparent;box-shadow:0 10px 22px rgba(11,97,209,0.35)}
+.btn.ghost:hover{background:rgba(255,255,255,0.06)}
+.btn:hover{transform: translateY(-2px)}
+.btn:focus-visible{outline:2px solid var(--white);outline-offset:2px}
+
+/* Sections */
+.section{padding:28px 0}
+.section-header{display:flex;flex-direction:column;gap:6px}
+.section-header h3{font-size:30px;margin:0}
+.muted{color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:14px}
+.card{background:var(--card);padding:18px;border-radius:14px;border:1px solid rgba(255,255,255,0.06);box-shadow:var(--shadow-soft)}
+.card h4{margin:0 0 10px;font-size:22px}
+.meta{color:var(--muted);margin-top:10px}
+
+/* Gallery */
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:14px}
+.gallery img{width:100%;height:180px;object-fit:cover;border-radius:12px;cursor:pointer;transition:transform .2s ease, box-shadow .2s ease;opacity:0;transform:translateY(12px)}
+.gallery img:hover{transform:translateY(-3px);box-shadow:var(--shadow-soft)}
+.gallery img.reveal{opacity:1;transform:translateY(0);transition:opacity var(--anim) ease, transform var(--anim) ease}
+
+/* Contact */
+.contact-grid{display:grid;grid-template-columns:1fr 420px;gap:22px;margin-top:14px;grid-template-areas:"info map" "form map"}
+.contact-card{background:linear-gradient(180deg, rgba(255,255,255,0.03), transparent);padding:18px;border-radius:14px;border:1px solid rgba(255,255,255,0.06);box-shadow:var(--shadow-soft);opacity:0;transform:translateY(10px)}
+.contact-card p{font-size:18px}
+.contact-card.reveal{opacity:1;transform:translateY(0);transition:opacity var(--anim) ease, transform var(--anim) ease}
+.map{height:280px;border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.06)}
+.contact-actions{display:flex;gap:10px;margin-top:10px;flex-wrap:wrap}
+.contact-grid > .contact-card:first-of-type{grid-area:info}
+.contact-grid > .contact-card:nth-of-type(2){grid-area:form}
+.contact-grid > .contact-card.map-card{grid-area:map}
+
+/* Careers */
+.careers-section .careers-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:14px}
+.career-card .list{margin:10px 0 0 18px}
+.career-card .list li{margin:6px 0}
+.career-card .actions{margin-top:12px}
+
+/* FAQ */
+.faq{display:grid;gap:10px;margin-top:14px}
+.faq-q{width:100%;text-align:left;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);color:var(--white);padding:12px 14px;border-radius:10px;font-weight:700}
+.faq-q[aria-expanded="true"]{background:rgba(255,255,255,0.08)}
+.faq-a{padding:12px 14px;border-left:2px solid var(--accent);background:rgba(255,255,255,0.03);border-radius:0 0 10px 10px}
+
+/* Form */
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+label span{display:block;font-size:14px;color:var(--muted);margin-bottom:6px}
+input, textarea{width:100%;padding:10px 12px;border-radius:10px;border:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.04);color:var(--white)}
+input:focus, textarea:focus{outline:2px solid var(--accent)}
+
+/* Mobile CTA bar */
+.mobile-cta-bar{position:fixed;left:0;right:0;bottom:0;z-index:90;display:none;gap:10px;justify-content:center;background:linear-gradient(180deg, rgba(7,17,50,.0), rgba(7,17,50,.7));padding:10px 14px}
+@media (max-width: 840px){.mobile-cta-bar{display:flex}}
+
+/* Footer & floating */
+.site-footer{padding:20px 0;margin-top:22px;border-top:1px solid rgba(255,255,255,0.06)}
+.footer-grid{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.social-links{display:flex;gap:12px}
+
+/* WhatsApp Floating Button */
+.whatsapp-float{position:fixed;right:20px;bottom:20px;width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,#25D366,#128C7E);display:flex;align-items:center;justify-content:center;box-shadow:0 14px 24px rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.2);z-index:80}
+.whatsapp-float svg{display:block}
+.whatsapp-float:focus-visible{outline:2px solid var(--white);outline-offset:2px}
+
+/* Lightbox */
+.lightbox{position:fixed;inset:0;background:rgba(0,0,0,.86);display:none;align-items:center;justify-content:center;z-index:100;padding:20px}
+.lightbox.open{display:flex;animation: fadeIn var(--anim-fast) ease}
+.lightbox img{max-width:92vw;max-height:86vh;border-radius:12px;box-shadow:var(--shadow)}
+
+/* Keyframes y responsive */
+@keyframes logoPulse{
+  0%,100%{transform:scale(1); box-shadow:0 8px 26px rgba(11,97,209,0.35)}
+  50%{transform:scale(1.06); box-shadow:0 14px 34px rgba(11,97,209,0.45)}
+}
+@keyframes floatY{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-6px)}
+}
+@keyframes fadeIn{from{opacity:0} to{opacity:1}}
+
+@media (max-width: 1024px){
+  .hero-left h2{font-size:44px}
+  .hero-grid{grid-template-columns:1fr 1fr}
+}
+
+@media (max-width: 840px){
+  .main-nav ul{display:none}
+  .menu-toggle{display:inline-block}
+  .hero-grid{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr;grid-template-areas:"info" "form" "map"}
+}
+
+@media (max-width: 540px){
+  body{font-size:18px}
+  .container{padding:16px}
+  .logo-type{font-size:26px}
+  .hero-left h2{font-size:36px}
+  .gallery{grid-template-columns:repeat(auto-fit,minmax(160px,1fr))}
+  .gallery img{height:150px}
+  .map{height:260px}
+}
